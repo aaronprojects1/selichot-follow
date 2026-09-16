@@ -1,0 +1,26 @@
+# Local caches and generated build output
+**/.gradle/
+**/.firebase/
+**/build/
+**/node_modules/
+**/__pycache__/
+*.py[cod]
+*.log
+**/.idea/
+*.iml
+local.properties
+.DS_Store
+Thumbs.db
+
+# Local credentials and signing keys
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pem
+*-service-account.json
+
+# Temporary microphone replay output
+tools/replay-mic.wav

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://selichot-web.web.app/sitemap.xml

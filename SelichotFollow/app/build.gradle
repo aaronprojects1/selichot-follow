@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.selichot.follow'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.selichot.follow'
+        minSdk 26
+        targetSdk 35
+        versionCode 3
+        versionName '2.1'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+tasks.register('verifyNoDevelopmentMedia') {
+    dependsOn 'assembleDebug'
+    doLast {
+        def apk = file("$buildDir/outputs/apk/debug/app-debug.apk")
+        def forbidden = []
+        new java.util.zip.ZipFile(apk).withCloseable { zip ->
+            zip.entries().each { entry ->
+                if (entry.name ==~ /(?i).*\.(m4a|opus|mp3|mp4|mov|wav)$/) forbidden << entry.name
+            }
+        }
+        if (!forbidden.isEmpty()) {
+            throw new GradleException("Development media was packaged in the APK: ${forbidden}")
+        }
+    }
+}
+
+tasks.named('check').configure {
+    dependsOn 'verifyNoDevelopmentMedia'
+}

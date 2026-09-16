@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="A bilingual, voice-aware companion for following Sephardic Selichot in real time.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Selichot">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Selichot Follow · סליחות">
+  <meta property="og:description" content="Find your place and keep your heart there with a bilingual, voice-aware Selichot companion.">
+  <meta property="og:url" content="https://selichot-web.web.app/">
+  <meta property="og:image" content="https://selichot-web.web.app/assets/icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://selichot-web.web.app/">
+  <title>Selichot Follow · סליחות</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="stylesheet" href="/styles.css?v=1.6.0">
+</head>
+<body>
+  <a class="skip-link" href="#prayer-list">Skip to the prayer</a>
+
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient__glow ambient__glow--one"></span>
+    <span class="ambient__glow ambient__glow--two"></span>
+    <span class="ambient__grain"></span>
+  </div>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand__mark" aria-hidden="true">ס</span>
+        <span class="brand__copy">
+          <span class="brand__name">Selichot</span>
+          <span class="brand__hebrew" lang="he" dir="rtl">סליחות</span>
+        </span>
+      </a>
+
+      <div class="topbar__actions">
+        <span class="online-state" id="online-state"><i></i><span>Online</span></span>
+        <button class="button button--quiet install-trigger" type="button" data-install aria-label="Install Selichot">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>
+          <span>Install</span>
+        </button>
+        <button class="icon-button" id="settings-button" type="button" aria-label="Open settings">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08A1.7 1.7 0 0 0 8.96 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88L4.2 7l2.83-2.83.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 10 3.01V3h4v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 7l-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.96 10H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="experience">
+      <aside class="story-panel">
+        <div class="story-panel__content">
+          <p class="eyebrow"><span></span> A companion for the sacred hours</p>
+          <h1>Find your place.<br><em>Keep your heart there.</em></h1>
+          <p class="story-panel__hebrew" lang="he" dir="rtl">קום קרא בתחנונים</p>
+          <p class="story-panel__intro">Follow the chazzan through the Sephardic Selichot service with live Hebrew voice tracking, clear translation, and a calm place to focus.</p>
+
+          <div class="moment-card">
+            <div class="moment-card__top">
+              <span class="moment-card__label">Your journey</span>
+              <span class="moment-card__percent" id="journey-percent">6%</span>
+            </div>
+            <div class="moment-card__ring" id="journey-ring" style="--progress: 6">
+              <span class="moment-card__number" id="journey-number">01</span>
+              <span>of <b id="journey-total">17</b></span>
+            </div>
+            <div class="moment-card__details">
+              <div><span>Mode</span><strong id="journey-mode">Bilingual</strong></div>
+              <div><span>Room</span><strong id="journey-room">Echo</strong></div>
+            </div>
+          </div>
+
+          <button class="install-card install-trigger" type="button" data-install>
+            <span class="install-card__icon">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>
+            </span>
+            <span class="install-card__copy">
+              <strong>Take Selichot with you</strong>
+              <small>Install on Android or iPhone</small>
+            </span>
+            <span class="install-card__arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <p class="privacy-note">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 2.9 8.1 7 10 4.1-1.9 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-5"/></svg>
+            Your microphone is used only while listening. No audio is saved by this site.
+          </p>
+        </div>
+      </aside>
+
+      <section class="reader" aria-label="Selichot prayer follower">
+        <header class="reader__header">
+          <div>
+            <span class="reader__kicker">Now following</span>
+            <h2>Edot HaMizrach <span lang="he" dir="rtl">· עדות המזרח</span></h2>
+          </div>
+          <button class="mode-pill" id="display-mode-button" type="button" title="Change language display">
+            <span class="mode-pill__active">HE</span><i></i><span>EN</span>
+          </button>
+        </header>
+
+        <section class="listening-panel" aria-live="polite">
+          <div class="listening-panel__top">
+            <div class="listen-state">
+              <span class="listen-state__dot" id="status-dot"><i></i></span>
+              <div>
+                <strong id="status-text">Ready when you are</strong>
+                <span id="status-subtext">Tap Listen to begin following</span>
+              </div>
+            </div>
+            <button class="profile-chip" id="profile-button" type="button">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h2m2-4v8m4-12v16m4-13v10m4-7v4"/></svg>
+              <span id="profile-label">Echo room</span>
+            </button>
+          </div>
+
+          <button class="button button--outline retry-listener" id="retry-listener" type="button" hidden>Retry word recognition</button>
+          <div class="heard-text" id="heard-text">
+            <span>Recognized Hebrew will appear here</span>
+            <b lang="he" dir="rtl">הדיבור יופיע כאן</b>
+          </div>
+
+          <div class="waveform" id="waveform" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </section>
+
+        <div class="progress-row">
+          <div class="progress-row__numbers">
+            <span id="current-count">01</span><i>/</i><span id="total-count">17</span>
+          </div>
+          <div class="progress-track"><span id="progress-bar" style="width: 5.88%"></span></div>
+          <button class="text-button" id="jump-current" type="button">Current phrase</button>
+        </div>
+
+        <nav class="section-nav" aria-label="Prayer sections">
+          <span class="section-nav__label">Sections · קטעים</span>
+          <div class="section-nav__options" id="section-options"></div>
+        </nav>
+
+        <div class="reader__scroll" id="reader-scroll">
+          <div class="prayer-list" id="prayer-list" tabindex="-1"></div>
+          <div class="service-end" id="service-end">
+            <span>✦</span>
+            <strong>May your prayers be received</strong>
+            <p lang="he" dir="rtl">תתקבל צלותנא ובעותנא</p>
+            <button class="button button--outline" id="begin-again" type="button">Begin again</button>
+          </div>
+        </div>
+
+        <nav class="player-controls" aria-label="Prayer controls">
+          <button class="control-button control-button--boundary" id="first-button" type="button" aria-label="Jump to first prayer phrase" title="Jump to first phrase">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m17 18-6-6 6-6M7 5v14"/></svg>
+          </button>
+          <button class="control-button" id="previous-button" type="button" aria-label="Previous prayer phrase">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="listen-button" id="listen-button" type="button">
+            <span class="listen-button__halo"></span>
+            <span class="listen-button__icon">
+              <svg class="mic-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21m-3 0h6"/></svg>
+              <svg class="stop-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/></svg>
+            </span>
+            <span class="listen-button__copy"><strong>Listen</strong><small lang="he">האזן</small></span>
+          </button>
+          <button class="control-button" id="next-button" type="button" aria-label="Next prayer phrase">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button class="control-button control-button--boundary" id="last-button" type="button" aria-label="Jump to last prayer phrase" title="Jump to last phrase">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 18 6-6-6-6m10-1v14"/></svg>
+          </button>
+        </nav>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="sheet" id="settings-dialog">
+    <form method="dialog" class="sheet__panel">
+      <header class="sheet__header">
+        <div><span>Personalize</span><h2>Settings <i lang="he">· הגדרות</i></h2></div>
+        <button class="icon-button" value="cancel" aria-label="Close settings" type="submit">×</button>
+      </header>
+
+      <div class="setting-group">
+        <div class="setting-label"><strong>Display</strong><span>Choose the text you want to see</span></div>
+        <div class="segmented" id="display-options" role="group" aria-label="Display language">
+          <button type="button" data-display="both">HE · EN</button>
+          <button type="button" data-display="hebrew" lang="he">עברית</button>
+          <button type="button" data-display="english">English</button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-label"><strong>Room profile</strong><span>Adjust voice matching for your space</span></div>
+        <div class="profile-options" id="profile-options">
+          <button type="button" data-profile="balanced"><i>◌</i><span><strong>Balanced</strong><small>Quiet, close listening</small></span></button>
+          <button type="button" data-profile="echo"><i>≈</i><span><strong>Echo room</strong><small>Synagogue or large room</small></span></button>
+          <button type="button" data-profile="hard"><i>⌁</i><span><strong>Hard to hear</strong><small>More forgiving matching</small></span></button>
+        </div>
+      </div>
+
+      <div class="setting-group setting-group--row">
+        <div class="setting-label"><strong>Prayer size</strong><span>Make the Hebrew easier to read</span></div>
+        <input id="font-size" type="range" min="20" max="36" step="1" value="27" aria-label="Prayer text size">
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-label"><strong>Prayer text</strong><span id="text-source">Starter service · 17 phrases</span></div>
+        <div class="action-grid">
+          <button class="settings-action" id="download-text" type="button"><span>↧</span><b>Load full Sephardic text</b></button>
+          <button class="settings-action" id="edit-text" type="button"><span>א</span><b>Edit Hebrew nusach</b></button>
+          <button class="settings-action" id="restore-text" type="button"><span>↺</span><b>Restore starter text</b></button>
+          <button class="settings-action" id="reset-progress" type="button"><span>01</span><b>Reset my progress</b></button>
+        </div>
+      </div>
+
+      <footer class="sheet__footer">
+        <div class="sheet__credits">
+          <p>Text provided with gratitude through <a href="https://www.sefaria.org/Selichot_Edot_HaMizrach" target="_blank" rel="noreferrer">Sefaria</a>.</p>
+          <p>Bundled Hebrew: Torat Emet (public domain). English: Rabbi Francis Nataf, Sefaria Edition 2020 (CC0).</p>
+          <p>Ades Synagogue acoustic reference: Chana England / National Library of Israel, 1982, via <a href="https://commons.wikimedia.org/wiki/File:The_National_Library_of_Israel_-_Adon_HaSelihot_-_1765167_adon.ogg" target="_blank" rel="noreferrer">Wikimedia Commons</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noreferrer">CC BY-SA 3.0</a>).</p>
+        </div>
+        <small class="app-version">Version 1.6.0</small>
+        <button class="button button--gold" value="done" type="submit">Done</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog class="sheet sheet--compact" id="install-dialog">
+    <form method="dialog" class="sheet__panel">
+      <header class="sheet__header">
+        <div><span>Keep it close</span><h2>Install Selichot</h2></div>
+        <button class="icon-button" value="cancel" aria-label="Close install instructions" type="submit">×</button>
+      </header>
+      <div class="install-hero">
+        <img src="/assets/icon.svg" alt="" width="92" height="92">
+        <div><strong>Selichot Follow</strong><span>Fast, focused, and available offline after your first visit.</span></div>
+      </div>
+      <div class="install-instructions" id="install-instructions"></div>
+      <button class="button button--gold button--full" id="native-install" type="button">Install on this device</button>
+    </form>
+  </dialog>
+
+  <dialog class="sheet" id="edit-dialog">
+    <form method="dialog" class="sheet__panel">
+      <header class="sheet__header">
+        <div><span>Your community</span><h2>Edit nusach <i lang="he">· עריכת נוסח</i></h2></div>
+        <button class="icon-button" value="cancel" aria-label="Close editor" type="submit">×</button>
+      </header>
+      <p class="editor-help">Use one trackable Hebrew phrase per line. Custom phrases will appear without English translation.</p>
+      <textarea id="prayer-editor" dir="rtl" lang="he" spellcheck="false" aria-label="Hebrew prayer text"></textarea>
+      <footer class="sheet__footer sheet__footer--actions">
+        <button class="button button--quiet" value="cancel" type="submit">Cancel</button>
+        <button class="button button--gold" id="save-text" type="button">Save nusach</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">Selichot Follow needs JavaScript to run the interactive prayer reader.</div>
+  </noscript>
+
+  <script type="module" src="/app.js?v=1.6.0"></script>
+</body>
+</html>

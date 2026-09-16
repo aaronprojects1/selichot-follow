@@ -1,0 +1,18 @@
+BUILD AND TEST THE V2.1 APK
+
+Android Studio:
+1. Open the SelichotFollow folder.
+2. Let Gradle sync and install Android SDK 35 if requested.
+3. Build > Build App Bundle(s) / APK(s) > Build APK(s).
+
+Command line with JDK 17 and Android SDK configured:
+  gradlew.bat testDebugUnitTest lintDebug assembleDebug verifyNoDevelopmentMedia
+  node --test web\tests\tracking-core.test.mjs
+
+Generated APK:
+  app\build\outputs\apk\debug\app-debug.apk
+
+Ready-to-install copy:
+  SelichotFollow.apk
+
+The APK requires Android 8.0 or newer. Direct audio/video-file recognition requires Android 13 or newer and a recognition service that supports injected audio.
