@@ -5,7 +5,7 @@
 - Local source: `WhatsApp Ptt 2026-09-06 at 13.04.09.ogg`
 - SHA-256: `e4a68c1a80bd7e6bcb8ebe1be48bb27ce40866b422cd81828ed35bb7b29c9c92`
 - Purpose: calibrated acoustic fingerprint for the supplied Bizochri recording after it was played from one phone and captured by a second phone.
-- This recording is retained only locally and is never deployed. The web build contains a compact, non-reversible fingerprint and reviewed cue times.
+- This recording is included in the development repository and is never deployed to Firebase Hosting. The web build contains a compact, non-reversible fingerprint and reviewed cue times.
 
 ## Adon HaSelichot — Ades Synagogue, Jerusalem (1982)
 

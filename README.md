@@ -29,6 +29,12 @@ node --test SelichotFollow/web/tests/*.test.mjs
 
 ## Deploy
 
+GitHub Actions tests every pull request targeting `main`. Every push or merge to `main` automatically tests and deploys the website to Firebase Hosting. A failed test prevents deployment. You can also run **Test and deploy website** manually from the repository's Actions tab.
+
+Anyone can propose changes by forking this public repository and opening a pull request. Production deployment happens after a maintainer merges the change into `main`; pull requests do not receive deployment credentials.
+
+Deployment uses Google Workload Identity Federation and a dedicated Hosting service account, with access restricted to this repository's `main` branch for push and manual workflow events. No service-account key or Firebase login token is stored in this repository.
+
 With access to the Firebase project:
 
 ```sh

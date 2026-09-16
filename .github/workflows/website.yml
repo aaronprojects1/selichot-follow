@@ -1,0 +1,60 @@
+name: Test and deploy website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Web tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Test prayer tracking and recognition recovery
+        run: node --test SelichotFollow/web/tests/*.test.mjs
+
+  deploy:
+    name: Deploy live website
+    needs: test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: firebase-hosting-production
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    environment:
+      name: production
+      url: https://selichot-web.web.app/
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install Firebase CLI
+        run: npm install --global firebase-tools@15.30.2
+      - name: Authenticate to Firebase
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: selichot-web
+          workload_identity_provider: projects/321928763245/locations/global/workloadIdentityPools/github-selichot/providers/github
+          service_account: github-hosting-deploy@selichot-web.iam.gserviceaccount.com
+      - name: Publish website
+        working-directory: SelichotFollow
+        run: firebase deploy --only hosting --project selichot-web --non-interactive

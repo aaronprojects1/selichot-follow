@@ -21,6 +21,7 @@ Thumbs.db
 *.p12
 *.pem
 *-service-account.json
+gha-creds-*.json
 
 # Temporary microphone replay output
 tools/replay-mic.wav
