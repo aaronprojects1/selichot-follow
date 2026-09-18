@@ -1957,6 +1957,7 @@ input[type="range"] {
 }
 
 .retry-listener { margin-block: 8px; min-height: 36px; }
+.app-version { display: flex; flex-direction: column; gap: 4px; line-height: 1.5; }
 [hidden] { display: none !important; }
 #status-text, #status-subtext { white-space: normal; line-height: 1.4; }
 #status-subtext { font-size: 11px; }

@@ -1,6 +1,6 @@
-import { SpeechSession } from "./speech-session.mjs?v=1.6.0";
-import { PrayerTracker, normalizeHebrew } from "./tracking-core.mjs?v=1.6.0";
-import { ChantReferenceMatcher } from "./chant-reference.mjs?v=1.6.0";
+import { SpeechSession } from "./speech-session.mjs?v=1.6.1";
+import { PrayerTracker, normalizeHebrew } from "./tracking-core.mjs?v=1.6.1";
+import { ChantReferenceMatcher } from "./chant-reference.mjs?v=1.6.1";
 
 const STARTER_LINES = [
   { he: "בן אדם מה לך נרדם, קום קרא בתחנונים", en: "Child of humanity, why do you sleep? Rise and call out with supplications." },
@@ -957,7 +957,7 @@ async function loadFullText({ userInitiated = true } = {}) {
       } catch { /* The bundled complete service also works offline. */ }
     }
     if (!data) {
-      const response = await fetch("/service-text.json?v=1.6.0");
+      const response = await fetch("/service-text.json?v=1.6.1");
       if (!response.ok) throw new Error("Service text unavailable");
       data = await response.json();
     }
@@ -1264,7 +1264,7 @@ async function registerServiceWorker() {
 
 async function loadChantReferences() {
   try {
-    const response = await fetch("/audio-references.json?v=1.6.0", { cache: "no-cache" });
+    const response = await fetch("/audio-references.json?v=1.6.1", { cache: "no-cache" });
     if (!response.ok) throw new Error(`Reference download failed: ${response.status}`);
     const payload = await response.json();
     chantMatcher.load(payload);

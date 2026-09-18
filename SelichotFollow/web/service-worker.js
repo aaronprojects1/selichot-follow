@@ -1,14 +1,14 @@
-const CACHE_VERSION = "selichot-follow-v1.6.0";
+const CACHE_VERSION = "selichot-follow-v1.6.1";
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css?v=1.6.0",
-  "/app.js?v=1.6.0",
-  "/tracking-core.mjs?v=1.6.0",
-  "/speech-session.mjs?v=1.6.0",
-  "/chant-reference.mjs?v=1.6.0",
-  "/audio-references.json?v=1.6.0",
-  "/service-text.json?v=1.6.0",
+  "/styles.css?v=1.6.1",
+  "/app.js?v=1.6.1",
+  "/tracking-core.mjs?v=1.6.1",
+  "/speech-session.mjs?v=1.6.1",
+  "/chant-reference.mjs?v=1.6.1",
+  "/audio-references.json?v=1.6.1",
+  "/service-text.json?v=1.6.1",
   "/manifest.webmanifest",
   "/assets/icon.svg",
   "/assets/icon-180.png",
